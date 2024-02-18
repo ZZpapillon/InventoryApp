@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  
+  h2 Category: #{category.name}
+  p Description: #{category.description}
+
+  if items.length > 0
+    h3 Items in this category:
+    ul
+      each item in items
+        li
+          a(href=`/catalog/item/${item._id}`) #{item.name} - €#{item.price.toFixed(2)}
+  else
+    p There are no items in this category.
+  
+  hr
+  
+  p
+    a(href=`${category.formattedUrl}/delete`) Delete Category
+  
+  p
+    a(href=`${category.formattedUrl}/update`) Update Category
+

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  if categories.length
+    ul
+      each category in categories
+        li
+          a(href=`/catalog/category/${category._id}`) #{category.name}
+          | 
+          span #{category.count} items
+
+  else
+    p There are no categories.
+

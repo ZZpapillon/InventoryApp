@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 Name: #{item.name}
+
+  p #[strong Category: ]
+    a(href=item.category.formattedUrl) #{item.category.name}
+
+  p #[strong Description:] #{item.description}
+  p #[strong Price:] €#{item.price}
+  p #[strong ISBN:] #{item.isbn}
+
+  hr
+
+  p
+    a(href=`${item.formattedUrl}/delete`) Delete Item
+ 
+  p
+    a(href=`${item.formattedUrl}/update`) Update Item
+
